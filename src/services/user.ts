@@ -28,7 +28,7 @@ function clearCache() {
 
 export function avatar(qq?: string) {
   if (!qq) {
-    return "/default_avatar.jpg";
+    return "./default_avatar.jpg";
   }
   if (/^[0-9]+$/.test(qq)) {
     return `http://q1.qlogo.cn/g?b=qq&nk=${qq}&s=5`;
