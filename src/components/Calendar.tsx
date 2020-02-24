@@ -5,15 +5,15 @@ import { list as getPostList, Post } from "services/post";
 import { Link } from "react-router-dom";
 
 export default () => {
-  const [posts, setPosts] = useState<Post[][]>([]);
+  const [posts, setPosts] = useState<Record<string, Post[]>>({});
   const [day, setDay] = useState(new Date().getDay());
   useEffect(() => {
     getPostList("新番", "", 1, 100, "nowait").then(res => {
-      let ret: any = {};
+      let ret: Record<string, Post[]> = {};
       res.posts.forEach(item => {
-        let day = new Date(item.time!).getDay();
-        ret[day] = ret[day] || [];
-        ret[day].push(item);
+        let day = new Date(item.time?.split(" ")[0]!).getDay();
+        ret[day.toString()] = ret[day.toString()] || [];
+        ret[day.toString()].push(item);
       });
       setPosts(ret);
     });
@@ -35,17 +35,24 @@ export default () => {
         ]}
         onItemClick={(_, item) => {
           setDay(item?.index!);
+          console.log(item);
+          console.log(posts);
         }}
       />
-      <Flex wrap space="between">
+      <Flex
+        wrap
+        gap="gap.medium"
+        styles={{
+          paddingBottom: "64px"
+        }}
+      >
         {posts[day]?.map(item => (
           <Flex
             column
             key={item.id}
             hAlign="center"
             styles={{
-              width: "64px",
-              marginTop: "12px"
+              width: "64px"
             }}
           >
             <Link to={`/post?id=${item.id}`}>
@@ -54,11 +61,18 @@ export default () => {
                 circular
                 styles={{
                   width: "100%",
-                  height: "64px"
+                  height: "64px",
+                  marginTop: "12px"
                 }}
               />
             </Link>
-            <span>{item.title}</span>
+            <span
+              style={{
+                fontSize: "8px"
+              }}
+            >
+              {item.title}
+            </span>
           </Flex>
         ))}
       </Flex>

@@ -16,7 +16,7 @@ export default () => {
   }, []);
   return (
     <Flex styles={headerStyle}>
-      <Link to={data.isLogin ? "/" : "/login"}>
+      <Link to={data.isLogin ? `/` : `/login`}>
         <Avatar size="larger" image={avatar(user?.qq)} />
       </Link>
       <Flex styles={searchStyle}>

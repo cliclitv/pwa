@@ -27,23 +27,3 @@ export function useMediaQuery(query: string) {
 export function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
-
-export function disableScreenScale() {
-  let lastTime = 0;
-  document.addEventListener("touchstart", evt => {
-    if (evt.touches.length > 1) {
-      evt.preventDefault();
-    }
-  });
-  document.addEventListener(
-    "touchend",
-    evt => {
-      const nowTime = new Date().getTime();
-      if (nowTime - lastTime <= 300) {
-        evt.preventDefault();
-      }
-      lastTime = nowTime;
-    },
-    false
-  );
-}

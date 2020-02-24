@@ -25,6 +25,7 @@ code {
 
 a {
   color: inherit;
+  outline: none;
 }
 
 span {
