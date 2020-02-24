@@ -1,13 +1,42 @@
+:root {
+  --background-color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #2d2c2c;
+  }
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+a {
+  color: inherit;
+}
+
+span {
+  text-align: center;
+}
+
+#root {
+  padding-top: 44px;
+}
+
+input[type="text"],
+input[type="password"] {
+  outline: none;
+  font-size: 16px;
 }
