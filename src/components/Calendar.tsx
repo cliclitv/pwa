@@ -20,7 +20,7 @@ export default () => {
   }, []);
   return (
     <Flex column>
-      <h1>更新表</h1>
+      <h1>追番时间表</h1>
       <Menu
         defaultActiveIndex={day}
         primary
@@ -35,17 +35,9 @@ export default () => {
         ]}
         onItemClick={(_, item) => {
           setDay(item?.index!);
-          console.log(item);
-          console.log(posts);
         }}
       />
-      <Flex
-        wrap
-        gap="gap.medium"
-        styles={{
-          paddingBottom: "64px"
-        }}
-      >
+      <Flex wrap gap="gap.medium">
         {posts[day]?.map(item => (
           <Flex
             column
