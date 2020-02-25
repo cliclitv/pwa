@@ -16,8 +16,9 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-router-dom": "^5.1.3",
     "blueimp-md5": "^2.12.0",
-    "gh-pages": "^2.2.0",
+    "eslint": "^6.8.0",
     "js-cookie": "^2.2.1",
+    "prettier": "^1.19.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
@@ -30,7 +31,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build"
+    "format": "prettier --write \"**/*.md\" \"src/**/*.{js,ts,jsx,tsx}\" \"public/**/*.html\"",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src/"
   },
   "eslintConfig": {
     "extends": "react-app"
