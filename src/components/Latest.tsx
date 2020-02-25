@@ -5,13 +5,13 @@ import Overview from "./Overview";
 export default () => {
   const [posts, setPosts] = useState<Post[]>([]);
   useEffect(() => {
-    getPostList("", "推荐", 1, 10).then(res => {
+    getPostList("bgm", "", 1, 30).then(res => {
       setPosts(res.posts);
     });
   }, []);
   return (
     <>
-      <h1>编辑推荐</h1>
+      <h1>最近更新</h1>
       <Overview posts={posts} />
     </>
   );

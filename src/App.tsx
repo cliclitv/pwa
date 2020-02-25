@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { HomePage, LoginPage, PostPage, VideoPage, SearchPage } from "pages";
 import Header from "components/Header";
+import Footer from "components/Footer";
 
 export default () => {
   return (
@@ -24,6 +25,7 @@ export default () => {
           <HomePage />
         </Route>
       </Switch>
+      <Footer />
     </Router>
   );
 };
