@@ -5,10 +5,16 @@ import { list as getPostList, Post } from "services/post";
 import { Link } from "react-router-dom";
 import "./Calendar.css";
 
+let postsCache: Record<string, Post[]> | undefined;
+
 export default () => {
   const [posts, setPosts] = useState<Record<string, Post[]>>({});
   const [day, setDay] = useState(new Date().getDay());
   useEffect(() => {
+    if (postsCache) {
+      setPosts(postsCache);
+      return;
+    }
     getPostList("新番", "", 1, 100, "nowait").then(res => {
       let ret: Record<string, Post[]> = {};
       res.posts.forEach(item => {
@@ -16,7 +22,8 @@ export default () => {
         ret[day.toString()] = ret[day.toString()] || [];
         ret[day.toString()].push(item);
       });
-      setPosts(ret);
+      postsCache = ret;
+      setPosts(postsCache);
     });
   }, []);
   return (

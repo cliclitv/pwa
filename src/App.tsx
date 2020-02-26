@@ -1,31 +1,32 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
+import CacheRoute, { CacheSwitch } from "react-router-cache-route";
 import { HomePage, LoginPage, PostPage, VideoPage, SearchPage } from "pages";
 import Header from "components/Header";
 import Footer from "components/Footer";
 
 export default () => {
   return (
-    <Router>
+    <>
       <Header />
-      <Switch>
-        <Route path="/search">
+      <CacheSwitch>
+        <CacheRoute path="/search">
           <SearchPage />
-        </Route>
+        </CacheRoute>
         <Route path="/video">
           <VideoPage />
         </Route>
-        <Route path="/post">
+        <CacheRoute path="/post">
           <PostPage />
-        </Route>
+        </CacheRoute>
         <Route path="/login">
           <LoginPage />
         </Route>
-        <Route path="/">
+        <CacheRoute path="/">
           <HomePage />
-        </Route>
-      </Switch>
+        </CacheRoute>
+      </CacheSwitch>
       <Footer />
-    </Router>
+    </>
   );
 };

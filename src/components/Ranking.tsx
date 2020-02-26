@@ -2,11 +2,18 @@ import React, { useState, useEffect } from "react";
 import { ranking as getRanking, Post } from "services/post";
 import Overview from "./Overview";
 
+let postsCache: Post[] | undefined;
+
 export default () => {
   const [posts, setPosts] = useState<Post[]>([]);
   useEffect(() => {
+    if (postsCache) {
+      setPosts(postsCache);
+      return;
+    }
     getRanking().then(res => {
-      setPosts(res.posts);
+      postsCache = res.posts;
+      setPosts(postsCache);
     });
   }, []);
   return (

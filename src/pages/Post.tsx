@@ -7,30 +7,34 @@ import "./Post.css";
 import { useQuery } from "utils";
 import { VideoList } from "./Video";
 
+const cache = {
+  id: "",
+  post: {} as Post,
+  HTML: ""
+};
+
 export default () => {
   const id = useQuery().get("id")!;
-  const t: any = useRef(null);
+  if (!id) return <></>;
   const u: any = useRef(null);
   const [post, setPost] = useState<Post>({});
   useEffect(() => {
     (async () => {
-      const details = await getPostDetails(id);
-      setPost(details);
-      const w = document.body.clientWidth;
-      if (details.tag.indexOf("其它") > -1 || w < 480) {
-        t.current.style.display = "none";
-        u.current.style.display = "block";
-        u.current.innerHTML = snarkdown(details.content);
-      } else {
-        t.current.innerHTML = snarkdown(details.content);
+      let post = cache.post;
+      if (post.id !== id) {
+        post = await getPostDetails(id);
+        cache.post = post;
+        cache.id = id;
+        cache.HTML = snarkdown(post.content);
       }
+      setPost(post);
+      u.current.innerHTML = cache.HTML;
     })();
   }, [id]);
   return (
     <Flex column>
-      <article ref={t}></article>
       <h1>{post.title || "少男祈祷中……"}</h1>
-      <article ref={u} className="other"></article>
+      <article ref={u}></article>
       {post.status === "public" ? (
         <VideoList postId={id} />
       ) : post.status ? (

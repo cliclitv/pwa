@@ -5,6 +5,7 @@ import * as serviceWorker from "serviceWorker";
 import "index.css";
 import App from "App";
 import { useMediaQuery, disableScreenScale } from "utils";
+import { BrowserRouter as Router } from "react-router-dom";
 
 disableScreenScale();
 
@@ -16,7 +17,9 @@ function Index() {
   );
   return (
     <Provider theme={theme}>
-      <App />
+      <Router>
+        <App />
+      </Router>
     </Provider>
   );
 }
