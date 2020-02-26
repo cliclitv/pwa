@@ -10,6 +10,9 @@ export default (props: { posts: Post[] }) => {
     coverPadding = 16;
   return (
     <Grid
+      styles={{
+        alignItems: "flex-start"
+      }}
       columns={Math.floor(
         document.body.clientWidth / (coverWidth + coverPadding * 2)
       )}
