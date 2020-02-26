@@ -40,6 +40,9 @@ export default () => {
         }}
       />
       <Grid
+        styles={{
+          alignItems: "flex-start"
+        }}
         content={posts[day]?.map(item => (
           <Flex column key={item.id} hAlign="center" vAlign="center">
             <Link to={`/post?id=${item.id}`}>

@@ -6,16 +6,20 @@ import { Post } from "services/post";
 
 export default (props: { posts: Post[] }) => {
   const posts = props.posts;
+  const coverWidth = 150,
+    coverPadding = 16;
   return (
     <Grid
+      columns={Math.floor(
+        document.body.clientWidth / (coverWidth + coverPadding * 2)
+      )}
       content={posts?.map(item => {
         return (
           <Flex
             hAlign="center"
             vAlign="center"
             styles={{
-              width: "182px",
-              padding: "16px"
+              padding: `12px ${coverPadding}px`
             }}
             column
             key={item.id}
