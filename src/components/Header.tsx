@@ -36,7 +36,8 @@ export default () => {
 
 const headerStyle: ICSSInJSStyle = {
   padding: "4px 8px",
-  alignItems: "center"
+  alignItems: "center",
+  marginBottom: "24px"
 };
 
 const searchStyle: ICSSInJSStyle = {

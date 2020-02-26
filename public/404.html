@@ -40,13 +40,16 @@
         @media (prefers-color-scheme: dark) {
           .splash {
             background-image: url(%PUBLIC_URL%/splash_dark.png) !important;
+            background-color: #2d2c2c;
           }
         }
         .splash {
-          width: 100vw;
+          width: auto;
           height: 100vh;
-          background: url(%PUBLIC_URL%/splash.png);
-          background-size: cover;
+          background-image: url(%PUBLIC_URL%/splash.png);
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
         }
       </style>
       <div class="splash"></div>
