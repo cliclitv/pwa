@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Image, Flex, Menu } from "@fluentui/react";
+import { Image, Flex, Menu, Grid } from "@fluentui/react";
 import { getSuo } from "services/dirty";
 import { list as getPostList, Post } from "services/post";
 import { Link } from "react-router-dom";
+import "./Calendar.css";
 
 export default () => {
   const [posts, setPosts] = useState<Record<string, Post[]>>({});
@@ -22,6 +23,7 @@ export default () => {
     <Flex column>
       <h1>追番时间表</h1>
       <Menu
+        className="date_list"
         defaultActiveIndex={day}
         primary
         items={[
@@ -37,37 +39,26 @@ export default () => {
           setDay(item?.index!);
         }}
       />
-      <Flex wrap gap="gap.medium">
-        {posts[day]?.map(item => (
-          <Flex
-            column
-            key={item.id}
-            hAlign="center"
-            styles={{
-              width: "64px"
-            }}
-          >
+      <Grid
+        content={posts[day]?.map(item => (
+          <Flex column key={item.id} hAlign="center" vAlign="center">
             <Link to={`/post?id=${item.id}`}>
               <Image
                 src={getSuo(item.content!)}
                 circular
                 styles={{
-                  width: "100%",
-                  height: "64px",
-                  marginTop: "12px"
+                  maxWidth: "128px",
+                  width: "18vw",
+                  height: "18vw",
+                  maxHeight: "128px",
+                  margin: "12px 0 8px 0"
                 }}
               />
             </Link>
-            <span
-              style={{
-                fontSize: "8px"
-              }}
-            >
-              {item.title}
-            </span>
+            <span>{item.title}</span>
           </Flex>
         ))}
-      </Flex>
+      />
     </Flex>
   );
 };

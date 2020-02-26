@@ -32,6 +32,10 @@ span {
   text-align: center;
 }
 
+img {
+  object-fit: cover;
+}
+
 #root {
   padding-top: 44px;
 }

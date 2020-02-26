@@ -1,0 +1,11 @@
+.date_list {
+  font-size: 24px;
+  justify-content: space-around;
+  margin-bottom: 12px !important;
+}
+
+.date_list > li {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
