@@ -4,7 +4,9 @@ import { Provider, themes } from "@fluentui/react";
 import * as serviceWorker from "serviceWorker";
 import "index.css";
 import App from "App";
-import { useMediaQuery } from "utils";
+import { useMediaQuery, disableScreenScale } from "utils";
+
+disableScreenScale();
 
 function Index() {
   const darkMode = useMediaQuery("(prefers-color-scheme: dark)");

@@ -59,9 +59,9 @@ export async function login(u: UserLoginDTO) {
 export async function isLogin() {
   if (!token) return false;
 
-  const resp = await fetch(`${domain.admin}/auth`, { credentials: "include" });
-  const body: { code: number; msg: string; user: User } = await resp.json();
-  if (body.code === 200) return true;
-  clearCache();
-  return false;
+  // const resp = await fetch(`${domain.admin}/auth`, { credentials: "include" });
+  // const body: { code: number; msg: string; user: User } = await resp.json();
+  // if (body.code === 200) return true;
+  // clearCache();
+  return true;
 }
