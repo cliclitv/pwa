@@ -7,28 +7,16 @@ import "./Post.css";
 import { useQuery } from "utils";
 import { VideoList } from "./Video";
 
-const cache = {
-  id: "",
-  post: {} as Post,
-  HTML: ""
-};
-
 export default () => {
   const id = useQuery().get("id")!;
-  if (!id) return <></>;
   const u: any = useRef(null);
   const [post, setPost] = useState<Post>({});
   useEffect(() => {
+    if (!id) return;
     (async () => {
-      let post = cache.post;
-      if (post.id !== id) {
-        post = await getPostDetails(id);
-        cache.post = post;
-        cache.id = id;
-        cache.HTML = snarkdown(post.content);
-      }
+      const post = await getPostDetails(id);
       setPost(post);
-      u.current.innerHTML = cache.HTML;
+      u.current.innerHTML = snarkdown(post.content);
     })();
   }, [id]);
   return (
