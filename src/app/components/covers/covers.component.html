@@ -1,0 +1,6 @@
+<div class="container" style="--cols:{{cols}}">
+  <div *ngFor="let i of posts" class="item">
+    <img src="{{getCoverImg(i.content)}}" routerLink="/post/{{i.id}}" alt="">
+    <span>{{ i.title }}</span>
+  </div>
+</div>

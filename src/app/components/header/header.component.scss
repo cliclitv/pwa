@@ -1,0 +1,18 @@
+:host {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+}
+
+img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+input {
+  margin: 0 8px 0 12px;
+  background: url(/assets/search.svg) no-repeat right 10px center;
+  background-size: 16px 16px;
+  padding-right: 32px;
+}

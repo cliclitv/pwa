@@ -1,0 +1,6 @@
+<div class="calendar">
+  <span *ngFor="let i of calendar" [class.active]="i.key === activeDay"
+    (click)="changeDay(i.key)">{{ i.content }}</span>
+</div>
+
+<app-covers [posts]="posts" [cols]="cols"></app-covers>

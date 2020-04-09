@@ -1,0 +1,23 @@
+.calendar {
+  display: flex;
+  justify-content: space-around;
+
+  & > span.active {
+    color: #946ce6;
+    border-bottom: 4px solid #946ce6;
+  }
+}
+
+:host ::ng-deep > app-covers {
+  .item {
+    padding: 0;
+    img {
+      width: 18vw;
+      height: 18vw;
+      border-radius: 50%;
+      max-width: 128px;
+      max-height: 128px;
+      margin: 12px 0 8px 0;
+    }
+  }
+}

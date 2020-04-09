@@ -1,0 +1,14 @@
+<h1 *ngIf="!post">少男祈祷中……</h1>
+
+<ng-container *ngIf="post">
+  <h1>{{ post.title }}</h1>
+  <article [innerHTML]="md(post.content)"></article>
+
+  <div class="video-list">
+    <div *ngFor="let i of videoNav" class="item" routerLink="/video" [queryParams]="{url: i.content}">
+      <img src="{{getAvatar(i.uqq)}}" alt="{{i.uqq}}" />
+      <span>P {{i.oid}}</span>
+      <span>{{i.title}}</span>
+    </div>
+  </div>
+</ng-container>
