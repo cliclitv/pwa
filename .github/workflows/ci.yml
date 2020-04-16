@@ -20,6 +20,8 @@ jobs:
           node-version: 12.x
       - run: npm i
       - run: npm run build && echo "pwa.clicli.me" > ./dist/pwa/CNAME
+      - name: fuck safari
+        run: sed -i $'/^            const req = event.request;.*/a if (req.headers.get(\'range\')) return;' ./dist/pwa/ngsw-worker.js
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.github_token }}
