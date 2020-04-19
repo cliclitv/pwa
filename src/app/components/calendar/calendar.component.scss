@@ -10,12 +10,9 @@
 
 :host ::ng-deep > app-covers {
   .item {
-    box-sizing: content-box;
-    width: 18vw;
     padding: 0;
-    padding-left: 5vw;
     img {
-      width: 100%;
+      width: 18vw;
       height: 18vw;
       border-radius: 50%;
       max-width: 128px;

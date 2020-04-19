@@ -38,7 +38,7 @@ export class CalendarComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  changeDay(d: number) {
+  changeDay(d: number): void {
     this.activeDay = d;
   }
 }

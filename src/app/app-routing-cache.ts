@@ -1,7 +1,7 @@
 import {
   ActivatedRouteSnapshot,
   DetachedRouteHandle,
-  RouteReuseStrategy
+  RouteReuseStrategy,
 } from "@angular/router";
 import { ComponentRef } from "@angular/core";
 
@@ -40,7 +40,7 @@ export class AppRoutingCache implements RouteReuseStrategy {
     return !!this.routes[getConfiguredUrl(route)];
   }
 
-  private getStoreKey(route: ActivatedRouteSnapshot) {
+  private getStoreKey(route: ActivatedRouteSnapshot): string {
     const baseUrl = getResolvedUrl(route);
 
     //this works, as ActivatedRouteSnapshot has only every one children ActivatedRouteSnapshot

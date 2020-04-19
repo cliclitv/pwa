@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  search(s: string) {
+  search(s: string): void {
     if (s) {
       this.router.navigate(["/search", s]);
     }

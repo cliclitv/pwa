@@ -27,11 +27,11 @@ export class PostComponent implements OnInit {
     });
   }
 
-  md(s: string) {
+  md(s: string): string {
     return snarkdown(s);
   }
 
-  getAvatar(qq?: string) {
+  getAvatar(qq?: string): string {
     return avatar(qq);
   }
 }
