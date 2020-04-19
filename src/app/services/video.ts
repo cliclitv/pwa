@@ -1,5 +1,4 @@
 import { domain } from "@/config";
-import { Video } from "@/types/video";
 
 export async function pv(id: string): Promise<number> {
   return fetch(`${domain.api}/pv/${id}`)
@@ -13,6 +12,8 @@ export async function list(id: string) {
     .then((data) => data.videos);
 }
 
-export async function play(url: string): Promise<{ url: string }> {
+export async function play(
+  url: string,
+): Promise<{ url: string; type: string }> {
   return fetch(`${domain.jx}/jx?url=${url}`).then((resp) => resp.json());
 }

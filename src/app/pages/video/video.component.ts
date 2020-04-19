@@ -8,13 +8,13 @@ import { play } from "@/services/video";
   styleUrls: ["./video.component.scss"],
 })
 export class VideoComponent implements OnInit {
-  playUrl = "";
+  videoInfo: { url: string; type: string };
   constructor(public activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     let url = this.activatedRoute.snapshot.queryParamMap.get("url");
     play(url).then((data) => {
-      this.playUrl = data.url;
+      this.videoInfo = { url: data.url, type: data.type };
     });
   }
 }
