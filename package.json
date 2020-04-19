@@ -21,6 +21,8 @@
     "@angular/router": "~9.1.0",
     "@angular/service-worker": "~9.1.0",
     "blueimp-md5": "^2.13.0",
+    "eplayer": "^1.4.4",
+    "hls.js": "^0.13.2",
     "js-cookie": "^2.2.1",
     "rxjs": "~6.5.4",
     "snarkdown": "^1.2.2",
