@@ -12,6 +12,18 @@
       "sizes": "200x200"
     },
     {
+      "src": "assets/logo_44.png",
+      "sizes": "44x44",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "assets/logo_50.png",
+      "sizes": "50x50",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
       "src": "assets/logo_72.png",
       "sizes": "72x72",
       "type": "image/png",
@@ -32,6 +44,12 @@
     {
       "src": "assets/logo_144.png",
       "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "assets/logo_150.png",
+      "sizes": "150x150",
       "type": "image/png",
       "purpose": "maskable"
     },
