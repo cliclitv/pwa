@@ -33,7 +33,8 @@ export class CalendarComponent implements OnInit {
     { key: 6, content: "周六" },
   ];
   activeDay = new Date().getDay();
-  cols = 5;
+  baseWidth = 76;
+  basePadding = 4;
   constructor() {}
 
   ngOnInit(): void {}

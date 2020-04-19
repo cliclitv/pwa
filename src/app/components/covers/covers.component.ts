@@ -11,15 +11,25 @@ export class CoversComponent implements OnInit {
   @Input()
   posts: Post[];
   @Input()
-  cols = Math.floor(document.body.clientWidth / (150 + 16 * 2));
+  baseWidth = 150;
+  @Input()
+  basePadding = 16;
+  cols: number;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cols = Math.floor(
+      document.body.clientWidth /
+        ((this.baseWidth + this.basePadding * 2) + 16),
+    );
+  }
 
   @HostListener("window:resize", ["$event.target.document"])
   onResize(d: Document): void {
-    this.cols = Math.floor(d.body.clientWidth / (150 + 16 * 2));
+    this.cols = Math.floor(
+      d.body.clientWidth / ((this.baseWidth + this.basePadding * 2) + 16),
+    );
   }
 
   getCoverImg(s: string): string {
