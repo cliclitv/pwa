@@ -1,5 +1,5 @@
-<div class="container" style="--cols:{{cols}}">
-  <div *ngFor="let i of posts" class="item">
+<div class="container">
+  <div *ngFor="let i of posts" class="item" [style.width]="100 / cols + '%'">
     <img src="{{getCoverImg(i.content)}}" routerLink="/post/{{i.id}}" alt="">
     <span>{{ i.title }}</span>
   </div>

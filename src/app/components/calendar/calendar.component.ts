@@ -34,7 +34,7 @@ export class CalendarComponent implements OnInit {
   ];
   activeDay = new Date().getDay();
   baseWidth = 76;
-  basePadding = 4;
+  basePadding = 0;
   constructor() {}
 
   ngOnInit(): void {}

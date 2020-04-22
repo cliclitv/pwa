@@ -2,9 +2,14 @@
   display: flex;
   justify-content: space-around;
 
-  & > span.active {
-    color: #946ce6;
-    border-bottom: 4px solid #946ce6;
+  > span {
+    user-select: none;
+
+    &.active {
+      cursor: pointer;
+      color: #946ce6;
+      border-bottom: 4px solid #946ce6;
+    }
   }
 }
 

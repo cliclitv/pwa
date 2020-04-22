@@ -11,9 +11,9 @@ export class CoversComponent implements OnInit {
   @Input()
   posts: Post[];
   @Input()
-  baseWidth = 150;
+  baseWidth = 148;
   @Input()
-  basePadding = 16;
+  basePadding = 8;
   cols: number;
 
   constructor() {}
